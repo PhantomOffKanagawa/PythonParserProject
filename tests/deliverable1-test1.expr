@@ -1,0 +1,6 @@
+x = 5
+y /= x + 10
+z = y + x
+y % 2
+u = z + v
+4 = seven
