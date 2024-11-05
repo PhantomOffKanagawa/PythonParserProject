@@ -13,6 +13,11 @@ array
     : LBRACKET (WS? value WS? (COMMA WS? value WS?)*)? WS? RBRACKET
     ;
 
+count
+    : NUMBER
+    | VARIABLE
+    ;
+
 value
     : NUMBER                                // Number literals
     | VARIABLE
@@ -28,7 +33,19 @@ assignment_operator
 
 operator
     : ARITHMETIC_OP                            // Arithmetic operators
-    // | COMPARISON_OP                         // Comparison operators
-    // | LOGICAL_OP                            // Logical operators
-    // | BITWISE_OP                            // Bitwise operators
+    ;
+
+condition
+    : logical_condition
+    ;
+
+logical_condition
+    : WS? comparison_condition (WS? (LOGICAL_OP | COMPARISON_OP) WS? comparison_condition)*
+    ;
+
+comparison_condition
+    : NOT_OP WS? comparison_condition
+    | LPAREN WS? logical_condition WS? RPAREN
+    // | value WS? COMPARISON_OP WS? value
+    | value
     ;

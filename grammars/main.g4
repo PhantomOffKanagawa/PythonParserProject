@@ -1,5 +1,5 @@
 grammar main;
-import genericBlocks, ifBlocks;
+import blocks;
 
 // parser rules
 
@@ -8,14 +8,9 @@ stat
     ;
 
 expr
-    : code* EOF
-    ;
-
-code
-    : block                           // A block of code is a sequence of statements
-    | if_block
+    : block? EOF
     ;
 
 WS_SKIPPED
-    : [\t\r\n] -> skip
+    : [\t] -> skip
     ;

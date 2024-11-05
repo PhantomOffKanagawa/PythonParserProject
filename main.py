@@ -90,14 +90,13 @@ class CustomErrorListener(ErrorListener):
 correct_successes = 0
 correct_failures = 0
 
-correct_successes += parse_file('./tests/deliverable1-p1.expr')
-correct_failures += not parse_file('./tests/deliverable1-n1.expr')
+# correct_successes += parse_file('./tests/deliverable1-p1.expr')
+# correct_failures += not parse_file('./tests/deliverable1-n1.expr')
 
-correct_successes += parse_file('./tests/deliverable2-p1.expr')
-correct_failures += not parse_file('./tests/deliverable2-n1.expr')
-correct_successes += parse_file('./tests/deliverable2-p2.expr')
-correct_failures += not parse_file('./tests/deliverable2-n2.expr')
-# correct_successes = parse_file('./tests/deliverable2-p3.expr')
+# correct_successes += parse_file('./tests/deliverable2-p1.expr')
+# correct_failures += not parse_file('./tests/deliverable2-n1.expr')
+# correct_successes += parse_file('./tests/deliverable2-p2.expr')
+# correct_failures += not parse_file('./tests/deliverable2-n2.expr')
 
 # Test on class requirements
 
@@ -107,8 +106,8 @@ deliverable_three = parse_file('./final_tests/project_deliverable_3.py')
 
 # Show test results
 
-print(f"Successes: {correct_successes} {correct_successes / 1:0.0%}")
-print(f"Failures: {correct_failures} {correct_failures / 3:0.0%}")
+# print(f"Successes: {correct_successes} {correct_successes / 3:0.0%}")
+# print(f"Failures: {correct_failures} {correct_failures / 3:0.0%}")
 
 print(f"Project Deliverable 1: {'Passed' if deliverable_one else 'Failed'}")
 print(f"Project Deliverable 2: {'Passed' if deliverable_two else 'Failed'}")

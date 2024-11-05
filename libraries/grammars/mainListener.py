@@ -26,15 +26,6 @@ class mainListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by mainParser#code.
-    def enterCode(self, ctx:mainParser.CodeContext):
-        pass
-
-    # Exit a parse tree produced by mainParser#code.
-    def exitCode(self, ctx:mainParser.CodeContext):
-        pass
-
-
     # Enter a parse tree produced by mainParser#block.
     def enterBlock(self, ctx:mainParser.BlockContext):
         pass
@@ -80,6 +71,15 @@ class mainListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by mainParser#count.
+    def enterCount(self, ctx:mainParser.CountContext):
+        pass
+
+    # Exit a parse tree produced by mainParser#count.
+    def exitCount(self, ctx:mainParser.CountContext):
+        pass
+
+
     # Enter a parse tree produced by mainParser#value.
     def enterValue(self, ctx:mainParser.ValueContext):
         pass
@@ -107,24 +107,6 @@ class mainListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by mainParser#comment.
-    def enterComment(self, ctx:mainParser.CommentContext):
-        pass
-
-    # Exit a parse tree produced by mainParser#comment.
-    def exitComment(self, ctx:mainParser.CommentContext):
-        pass
-
-
-    # Enter a parse tree produced by mainParser#if_block.
-    def enterIf_block(self, ctx:mainParser.If_blockContext):
-        pass
-
-    # Exit a parse tree produced by mainParser#if_block.
-    def exitIf_block(self, ctx:mainParser.If_blockContext):
-        pass
-
-
     # Enter a parse tree produced by mainParser#condition.
     def enterCondition(self, ctx:mainParser.ConditionContext):
         pass
@@ -149,6 +131,60 @@ class mainListener(ParseTreeListener):
 
     # Exit a parse tree produced by mainParser#comparison_condition.
     def exitComparison_condition(self, ctx:mainParser.Comparison_conditionContext):
+        pass
+
+
+    # Enter a parse tree produced by mainParser#comment.
+    def enterComment(self, ctx:mainParser.CommentContext):
+        pass
+
+    # Exit a parse tree produced by mainParser#comment.
+    def exitComment(self, ctx:mainParser.CommentContext):
+        pass
+
+
+    # Enter a parse tree produced by mainParser#if_block.
+    def enterIf_block(self, ctx:mainParser.If_blockContext):
+        pass
+
+    # Exit a parse tree produced by mainParser#if_block.
+    def exitIf_block(self, ctx:mainParser.If_blockContext):
+        pass
+
+
+    # Enter a parse tree produced by mainParser#while_block.
+    def enterWhile_block(self, ctx:mainParser.While_blockContext):
+        pass
+
+    # Exit a parse tree produced by mainParser#while_block.
+    def exitWhile_block(self, ctx:mainParser.While_blockContext):
+        pass
+
+
+    # Enter a parse tree produced by mainParser#for_block.
+    def enterFor_block(self, ctx:mainParser.For_blockContext):
+        pass
+
+    # Exit a parse tree produced by mainParser#for_block.
+    def exitFor_block(self, ctx:mainParser.For_blockContext):
+        pass
+
+
+    # Enter a parse tree produced by mainParser#for_condition.
+    def enterFor_condition(self, ctx:mainParser.For_conditionContext):
+        pass
+
+    # Exit a parse tree produced by mainParser#for_condition.
+    def exitFor_condition(self, ctx:mainParser.For_conditionContext):
+        pass
+
+
+    # Enter a parse tree produced by mainParser#iterable.
+    def enterIterable(self, ctx:mainParser.IterableContext):
+        pass
+
+    # Exit a parse tree produced by mainParser#iterable.
+    def exitIterable(self, ctx:mainParser.IterableContext):
         pass
 
 

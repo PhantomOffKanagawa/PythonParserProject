@@ -25,3 +25,7 @@ VARIABLE
 WS // Required Whitespace
     : [ ]+
     ;
+
+NEWLINE
+    : '\r'? [ ]* '\n' | '\r'                         // Newline
+    ;

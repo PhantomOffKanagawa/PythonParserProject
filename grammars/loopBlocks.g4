@@ -1,31 +1,22 @@
-// grammar loopBlocks;
-// import keywords, values, operators, genericBlocks;
-// /*
-//    Handles all while block elements
-//  */
+grammar loopBlocks;
+/*
+   Handles all while or for block elements
+ */
 
-// while_block
-//     : IF WS? condition WS? COLON WS? block*
-//       (ELIF condition WS? COLON WS? block*)*
-//       (ELSE WS? COLON WS? block*)?
-//     ;
+while_block
+    : 'while' WS? condition WS? COLON WS? block
+    ;
 
-// // condition
-// //     : logical_condition
-// //     ;
+for_block
+    : 'for' WS? for_condition WS? COLON WS? block
+    ;
 
-// // logical_condition
-// //     : WS? comparison_condition (WS? (LOGICAL_OP | COMPARISON_OP) WS? comparison_condition)*
-// //     ;
+for_condition
+    : VARIABLE WS 'in' WS iterable
+    ;
 
-// // comparison_condition
-// //     : NOT_OP WS? comparison_condition
-// //     | LPAREN WS? logical_condition WS? RPAREN
-// //     // | value WS? COMPARISON_OP WS? value
-// //     | value
-// //     ;
-
-// // block
-// //     : assignment                            // One or more statements
-// //     | expression
-// //     ;
+iterable
+    : VARIABLE
+    | array
+    | 'range(' WS? count WS? (',' WS? count WS?){0,2} ')'
+    ;
