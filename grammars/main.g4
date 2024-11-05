@@ -1,5 +1,5 @@
 grammar main;
-import operators;
+import genericBlocks, ifBlocks;
 
 // parser rules
 
@@ -8,19 +8,14 @@ stat
     ;
 
 expr
-    : statement* EOF                        // A program is a sequence of statements
+    : code* EOF
     ;
 
-statement
-    : assignment                            // Assignment
-    | expression                            // Expressions
+code
+    : block                           // A block of code is a sequence of statements
+    | if_block
     ;
 
-// Ignored tokens
-WS
-    : [ \t\r\n]+ -> skip
-    ;
-
-COMMENT
-    : '#' ~[\r\n]* -> skip
+WS_SKIPPED
+    : [\t\r\n] -> skip
     ;

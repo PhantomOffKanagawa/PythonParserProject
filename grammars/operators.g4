@@ -1,17 +1,29 @@
 grammar operators;
+import keywords, values;
 
 assignment
-    : VARIABLE ASSIGNMENT_OP expression
+    : VARIABLE WS? assignment_operator WS? expression
     ;
 
 expression
-    : value (operator value)*               // Expression with operators and values
+    : value WS? (operator WS? value WS?)*               // Expression with operators and values
+    ;
+
+array
+    : LBRACKET (WS? value WS? (COMMA WS? value WS?)*)? WS? RBRACKET
     ;
 
 value
     : NUMBER                                // Number literals
-    | VARIABLE {
-    }
+    | VARIABLE
+    | BOOLEAN                               // Boolean literals
+    | STRING                                // String literals
+    | LPAREN expression RPAREN              // Parenthesized expression
+    | array
+    ;
+
+assignment_operator
+    : ASSIGNMENT_OP                            // Assignment
     ;
 
 operator
@@ -20,28 +32,3 @@ operator
     // | LOGICAL_OP                            // Logical operators
     // | BITWISE_OP                            // Bitwise operators
     ;
-
-// Lexer rules
-NUMBER
-    : [0-9]+ ('.' [0-9]+)?                     // Integer or floating-point numbers
-    ;
-
-VARIABLE
-    : [a-zA-Z_][a-zA-Z_0-9]*                   // Variable names (Python identifiers)
-    ;
-
-ASSIGNMENT_OP
-    : '=' | '+=' | '-=' | '*=' | '/='          // Assignment operator
-    ;
-
-ARITHMETIC_OP
-    : '+' | '-' | '*' | '/' | '%'
-    ;
-
-// COMPARISON_OP
-//     : '==' | '!=' | '<' | '<=' | '>' | '>='
-//     ;
-
-// LOGICAL_OP
-//     : 'and' | 'or' | 'not'
-//     ;

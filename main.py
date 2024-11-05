@@ -22,7 +22,7 @@ def beautify_lisp_string(in_string):
             out_string += in_string[i]
     return out_string
 
-def parse_file(file_name):
+def parse_file(file_name, verbose=True):
     input_stream = FileStream(file_name)
     lexer = mainLexer(input_stream)
 
@@ -34,11 +34,13 @@ def parse_file(file_name):
     token_stream = CommonTokenStream(lexer)
 
     # Tokenizing and listing any lexer errors
-    print(f"Tokenizing {file_name}:")
+    if verbose:
+        print(f"Tokenizing {file_name}:")
     token_stream.fill()
     tokens = token_stream.tokens
-    for tk in tokens:
-        print(tk)
+    if verbose:
+        for tk in tokens:
+            print(tk)
 
     # Parsing and listing any parser errors
     parser = mainParser(token_stream)
@@ -49,27 +51,29 @@ def parse_file(file_name):
     tree = parser.stat()
 
     # Print the parse tree
-    print("Parse tree:")
-    lisp_tree_str = tree.toStringTree(recog=parser)
-    print(beautify_lisp_string(lisp_tree_str))
-    print()
+    if verbose:
+        print("Parse tree:")
+        lisp_tree_str = tree.toStringTree(recog=parser)
+        print(beautify_lisp_string(lisp_tree_str))
+        print()
 
-    if lexer_error_listener.errors:
+    if lexer_error_listener.errors and verbose:
         print("Lexer Errors:")
         for error in lexer_error_listener.errors:
             print(error)
         print()
 
-    if parser_error_listener.errors:
+    if parser_error_listener.errors and verbose:
         print("Parser Errors:")
         for error in parser_error_listener.errors:
             print(error)
+            print()
 
     # parser_errors = parser.getNumberOfSyntaxErrors()
     # if parser_errors > 0:
     #     print(f"\nParser Errors: {parser_errors}\n")
 
-    print()
+    return (len(lexer_error_listener.errors) == 0 and len(parser_error_listener.errors) == 0)
 
 # Custom error listener to capture errors
 class CustomErrorListener(ErrorListener):
@@ -82,5 +86,30 @@ class CustomErrorListener(ErrorListener):
         self.errors.append(error_message)
         print(error_message)
 
-# Test on a sample file
-parse_file('deliverable1-test1.expr')
+# Test on sample files
+correct_successes = 0
+correct_failures = 0
+
+correct_successes += parse_file('./tests/deliverable1-p1.expr')
+correct_failures += not parse_file('./tests/deliverable1-n1.expr')
+
+correct_successes += parse_file('./tests/deliverable2-p1.expr')
+correct_failures += not parse_file('./tests/deliverable2-n1.expr')
+correct_successes += parse_file('./tests/deliverable2-p2.expr')
+correct_failures += not parse_file('./tests/deliverable2-n2.expr')
+# correct_successes = parse_file('./tests/deliverable2-p3.expr')
+
+# Test on class requirements
+
+deliverable_one = parse_file('./final_tests/project_deliverable_1.py')
+deliverable_two = parse_file('./final_tests/project_deliverable_2.py')
+deliverable_three = parse_file('./final_tests/project_deliverable_3.py')
+
+# Show test results
+
+print(f"Successes: {correct_successes} {correct_successes / 1:0.0%}")
+print(f"Failures: {correct_failures} {correct_failures / 3:0.0%}")
+
+print(f"Project Deliverable 1: {'Passed' if deliverable_one else 'Failed'}")
+print(f"Project Deliverable 2: {'Passed' if deliverable_two else 'Failed'}")
+print(f"Project Deliverable 3: {'Passed' if deliverable_three else 'Failed'}")

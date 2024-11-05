@@ -1,0 +1,14 @@
+# Comment 1
+if x > 5:
+    # Test
+    y = 10
+    if x > 3:
+        y = 4
+    elif x == 3:
+        x = 3
+    else c == 2:
+        c = 3
+elif x < 3:
+    y = 5
+else:
+    y = 0
