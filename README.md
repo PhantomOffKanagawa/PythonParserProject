@@ -8,11 +8,19 @@ Available at: https://github.com/PhantomOffKanagawa/PythonParserProject
 - `python main.py`
 - Wait a second, cause its slow due to no tab scoping
 
-To run python:
-`python3 main.py`
-
-To compile main antlr
+### To Compile
+> Manual compilation of main w/ antlr4
 `antlr4 -Dlanguage=Python3 ./grammars/main.g4 -o ./libraries`
 
-TODO:
+### File Structure
+- `blocks.g4`: Define code blocks
+- `comments.g4`: Define single and multi line comments
+- `ifBlocks.g4`: Handle conditions and if statement blocks
+- `keywords.g4`: Define tokens for keywords/reserved words
+- `loopBlocks.g4`: Handle for & while loops and iterables
+- `main.g4`: Define how to enter the grammar
+- `operators.g4`: Define tokens for different operators
+- `values.g4`: Define variables, numbers, etc.
+
+### TODO:
 - [ ] Indentation
