@@ -4,11 +4,11 @@ import blocks;
 // parser rules
 
 stat
-    : expr
+    : expr | EOF
     ;
 
 expr
-    : block? EOF
+    : block EOF
     ;
 
 WS_SKIPPED

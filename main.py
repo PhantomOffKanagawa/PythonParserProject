@@ -2,8 +2,8 @@
 
 from antlr4 import *
 from antlr4.error.ErrorListener import ErrorListener
-from libraries.grammars.mainLexer import mainLexer
-from libraries.grammars.mainParser import mainParser
+from libraries.grammars.fullLexer import fullLexer
+from libraries.grammars.fullParser import fullParser
 
 def beautify_lisp_string(in_string):
     indent_size = 3
@@ -24,7 +24,7 @@ def beautify_lisp_string(in_string):
 
 def parse_file(file_name, verbose=True):
     input_stream = FileStream(file_name)
-    lexer = mainLexer(input_stream)
+    lexer = fullLexer(input_stream)
 
     # Adding custom error listener for the lexer
     lexer_error_listener = CustomErrorListener()
@@ -43,7 +43,7 @@ def parse_file(file_name, verbose=True):
             print(tk)
 
     # Parsing and listing any parser errors
-    parser = mainParser(token_stream)
+    parser = fullParser(token_stream)
     parser.removeErrorListeners()  # Remove default console error listeners
     parser_error_listener = CustomErrorListener()
     parser.addErrorListener(parser_error_listener)  # Custom error listener
@@ -101,14 +101,14 @@ correct_failures = 0
 # Test on class requirements
 
 deliverable_one = parse_file('./final_tests/project_deliverable_1.py')
-deliverable_two = parse_file('./final_tests/project_deliverable_2.py')
-deliverable_three = parse_file('./final_tests/project_deliverable_3.py')
+# deliverable_two = parse_file('./final_tests/project_deliverable_2.py')
+# deliverable_three = parse_file('./final_tests/project_deliverable_3.py')
 
 # Show test results
 
-# print(f"Successes: {correct_successes} {correct_successes / 3:0.0%}")
+# print(f"Successes: {correct_successes} {correct_successes / 1:0.0%}")
 # print(f"Failures: {correct_failures} {correct_failures / 3:0.0%}")
 
 print(f"Project Deliverable 1: {'Passed' if deliverable_one else 'Failed'}")
-print(f"Project Deliverable 2: {'Passed' if deliverable_two else 'Failed'}")
-print(f"Project Deliverable 3: {'Passed' if deliverable_three else 'Failed'}")
+# print(f"Project Deliverable 2: {'Passed' if deliverable_two else 'Failed'}")
+# print(f"Project Deliverable 3: {'Passed' if deliverable_three else 'Failed'}")

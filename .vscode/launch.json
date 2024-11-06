@@ -1,0 +1,14 @@
+{
+    "version": "0.0.0",
+    "configurations": [
+      {
+        "name": "Debug ANTLR4 grammar",
+        "type": "antlr-debug",
+        "request": "launch",
+        "input": "./final_tests/project_deliverable_1.py",
+        "grammar": "./grammars/full.g4",
+        "startRule": "stat",
+        "visualParseTree": true
+      }
+    ]
+} 
