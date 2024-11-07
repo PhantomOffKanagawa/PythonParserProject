@@ -1,11 +1,11 @@
-![Deliverable 1 Parse Tree](./deliverable_1.svg)
-> Image at `./final_tests/deliverable_1.svg`
+> Can't generate an image of the tree due to indentation implementation\
+> Token list and parse tree as text below
 
 ```
 (popl) $ python ./scripts/combine_grammars.py && antlr4 -Dlanguage=Python3 ./grammars/FullLexer.g4 ./grammars/FullParser.g4 && python main.py
 Generated grammar files. Compile with:
 antlr4 -Dlanguage=Python3 ./grammars/FullLexer.g4 ./grammars/FullParser.g4
-Tokenizing ./final_tests/project_deliverable_1.py:
+Tokenizing ./final_tests/project_deliverable_2.py:
 [@0,0:6='assign1',<29>,1:0] VARIABLE
 [@1,7:7=' ',<30>,1:7] WS
 [@2,8:8='=',<5>,1:8] ASSIGNMENT_OP
@@ -202,9 +202,172 @@ Tokenizing ./final_tests/project_deliverable_1.py:
 [@193,446:446='=',<5>,26:5] ASSIGNMENT_OP
 [@194,447:447=' ',<30>,26:6] WS
 [@195,448:451='True',<26>,26:7] BOOLEAN
-[@196,451:451='e',<3>,26:11] NEWLINE
-[@197,451:451='<DEDENT>',<2>,26:11] DEDENT
-[@198,447:451=' True',<-1>,26:11] WS_SKIPPED
+[@196,453:453='\n',<3>,27:0] NEWLINE
+[@197,455:455='\n',<3>,28:0] NEWLINE
+[@198,456:462='assign1',<29>,28:0] VARIABLE
+[@199,463:463=' ',<30>,28:7] WS
+[@200,464:464='=',<5>,28:8] ASSIGNMENT_OP
+[@201,465:465=' ',<30>,28:9] WS
+[@202,466:467='""',<27>,28:10] STRING
+[@203,469:469='\n',<3>,29:0] NEWLINE
+[@204,471:471='\n',<3>,30:0] NEWLINE
+[@205,472:473='if',<10>,30:0] IF
+[@206,474:474=' ',<30>,30:2] WS
+[@207,475:478='var1',<29>,30:3] VARIABLE
+[@208,479:479=' ',<30>,30:7] WS
+[@209,480:480='>',<16>,30:8] COMPARISON_OP
+[@210,481:481=' ',<30>,30:9] WS
+[@211,482:485='var2',<29>,30:10] VARIABLE
+[@212,486:486=':',<13>,30:14] COLON
+[@213,489:489='\t',<3>,31:1] NEWLINE
+[@214,489:489='<INDENT>',<1>,30:1] INDENT
+[@215,490:498='arith_op1',<29>,31:1] VARIABLE
+[@216,499:499=' ',<30>,31:10] WS
+[@217,500:500='=',<5>,31:11] ASSIGNMENT_OP
+[@218,501:501=' ',<30>,31:12] WS
+[@219,502:502='1',<25>,31:13] NUMBER
+[@220,503:503=' ',<30>,31:14] WS
+[@221,504:504='+',<6>,31:15] ARITHMETIC_OP
+[@222,505:505=' ',<30>,31:16] WS
+[@223,506:506='2',<25>,31:17] NUMBER
+[@224,509:509='\t',<3>,32:1] NEWLINE
+[@225,510:516='assign1',<29>,32:1] VARIABLE
+[@226,517:517=' ',<30>,32:8] WS
+[@227,518:518='=',<5>,32:9] ASSIGNMENT_OP
+[@228,519:519=' ',<30>,32:10] WS
+[@229,520:530='"text data"',<27>,32:11] STRING
+[@230,532:532='\n',<3>,33:0] NEWLINE
+[@231,532:532='<DEDENT>',<2>,32:0] DEDENT
+[@232,534:534='\n',<3>,34:0] NEWLINE
+[@233,535:536='if',<10>,34:0] IF
+[@234,537:537=' ',<30>,34:2] WS
+[@235,538:541='var1',<29>,34:3] VARIABLE
+[@236,542:542=' ',<30>,34:7] WS
+[@237,543:544='<=',<16>,34:8] COMPARISON_OP
+[@238,545:545=' ',<30>,34:10] WS
+[@239,546:549='var2',<29>,34:11] VARIABLE
+[@240,550:550=' ',<30>,34:15] WS
+[@241,551:553='and',<17>,34:16] LOGICAL_OP
+[@242,554:554=' ',<30>,34:19] WS
+[@243,555:558='var3',<29>,34:20] VARIABLE
+[@244,559:559=' ',<30>,34:24] WS
+[@245,560:561='==',<16>,34:25] COMPARISON_OP
+[@246,562:562=' ',<30>,34:27] WS
+[@247,563:566='var4',<29>,34:28] VARIABLE
+[@248,567:567=':',<13>,34:32] COLON
+[@249,570:570='\t',<3>,35:1] NEWLINE
+[@250,570:570='<INDENT>',<1>,34:1] INDENT
+[@251,571:579='arith_op1',<29>,35:1] VARIABLE
+[@252,580:580=' ',<30>,35:10] WS
+[@253,581:581='=',<5>,35:11] ASSIGNMENT_OP
+[@254,582:582=' ',<30>,35:12] WS
+[@255,583:583='1',<25>,35:13] NUMBER
+[@256,584:584=' ',<30>,35:14] WS
+[@257,585:585='+',<6>,35:15] ARITHMETIC_OP
+[@258,586:586=' ',<30>,35:16] WS
+[@259,587:587='2',<25>,35:17] NUMBER
+[@260,590:590='\t',<3>,36:1] NEWLINE
+[@261,591:597='assign1',<29>,36:1] VARIABLE
+[@262,598:598=' ',<30>,36:8] WS
+[@263,599:599='=',<5>,36:9] ASSIGNMENT_OP
+[@264,600:600=' ',<30>,36:10] WS
+[@265,601:611='"text data"',<27>,36:11] STRING
+[@266,613:613='\n',<3>,37:0] NEWLINE
+[@267,613:613='<DEDENT>',<2>,36:0] DEDENT
+[@268,614:617='else',<12>,37:0] ELSE
+[@269,618:618=':',<13>,37:4] COLON
+[@270,621:621='\t',<3>,38:1] NEWLINE
+[@271,621:621='<INDENT>',<1>,37:1] INDENT
+[@272,622:630='arith_op4',<29>,38:1] VARIABLE
+[@273,631:631=' ',<30>,38:10] WS
+[@274,632:632='=',<5>,38:11] ASSIGNMENT_OP
+[@275,633:633=' ',<30>,38:12] WS
+[@276,634:636='4.2',<25>,38:13] NUMBER
+[@277,637:637=' ',<30>,38:16] WS
+[@278,638:638='*',<6>,38:17] ARITHMETIC_OP
+[@279,639:639=' ',<30>,38:18] WS
+[@280,640:641='10',<25>,38:19] NUMBER
+[@281,644:644='\t',<3>,39:1] NEWLINE
+[@282,645:653='arith_op3',<29>,39:1] VARIABLE
+[@283,654:654=' ',<30>,39:10] WS
+[@284,655:656='*=',<5>,39:11] ASSIGNMENT_OP
+[@285,657:657=' ',<30>,39:13] WS
+[@286,658:666='arith_op4',<29>,39:14] VARIABLE
+[@287,669:669='\t',<3>,40:1] NEWLINE
+[@288,671:671='\n',<3>,41:0] NEWLINE
+[@289,671:671='<DEDENT>',<2>,39:0] DEDENT
+[@290,672:675='data',<29>,41:0] VARIABLE
+[@291,676:676=' ',<30>,41:4] WS
+[@292,677:677='=',<5>,41:5] ASSIGNMENT_OP
+[@293,678:678=' ',<30>,41:6] WS
+[@294,679:679='0',<25>,41:7] NUMBER
+[@295,681:681='\n',<3>,42:0] NEWLINE
+[@296,683:683='\n',<3>,43:0] NEWLINE
+[@297,684:685='if',<10>,43:0] IF
+[@298,686:686=' ',<30>,43:2] WS
+[@299,687:690='var1',<29>,43:3] VARIABLE
+[@300,691:691=' ',<30>,43:7] WS
+[@301,692:693='!=',<16>,43:8] COMPARISON_OP
+[@302,694:694=' ',<30>,43:10] WS
+[@303,695:698='var2',<29>,43:11] VARIABLE
+[@304,699:699=' ',<30>,43:15] WS
+[@305,700:701='or',<17>,43:16] LOGICAL_OP
+[@306,702:702=' ',<30>,43:18] WS
+[@307,703:706='var3',<29>,43:19] VARIABLE
+[@308,707:707=' ',<30>,43:23] WS
+[@309,708:709='>=',<16>,43:24] COMPARISON_OP
+[@310,710:710=' ',<30>,43:26] WS
+[@311,711:714='var4',<29>,43:27] VARIABLE
+[@312,715:715=':',<13>,43:31] COLON
+[@313,718:718='\t',<3>,44:1] NEWLINE
+[@314,718:718='<INDENT>',<1>,43:1] INDENT
+[@315,719:722='flag',<29>,44:1] VARIABLE
+[@316,723:723=' ',<30>,44:5] WS
+[@317,724:724='=',<5>,44:6] ASSIGNMENT_OP
+[@318,725:725=' ',<30>,44:7] WS
+[@319,726:729='True',<26>,44:8] BOOLEAN
+[@320,731:731='\n',<3>,45:0] NEWLINE
+[@321,731:731='<DEDENT>',<2>,44:0] DEDENT
+[@322,732:735='elif',<11>,45:0] ELIF
+[@323,736:736=' ',<30>,45:4] WS
+[@324,737:737='(',<14>,45:5] LPAREN
+[@325,738:740='not',<18>,45:6] NOT_OP
+[@326,741:741=' ',<30>,45:9] WS
+[@327,742:745='flag',<29>,45:10] VARIABLE
+[@328,746:746=')',<15>,45:14] RPAREN
+[@329,747:747=' ',<30>,45:15] WS
+[@330,748:749='>=',<16>,45:16] COMPARISON_OP
+[@331,750:750=' ',<30>,45:18] WS
+[@332,751:751='(',<14>,45:19] LPAREN
+[@333,752:755='var3',<29>,45:20] VARIABLE
+[@334,756:756=' ',<30>,45:24] WS
+[@335,757:757='>',<16>,45:25] COMPARISON_OP
+[@336,758:758=' ',<30>,45:26] WS
+[@337,759:760='10',<25>,45:27] NUMBER
+[@338,761:761=')',<15>,45:29] RPAREN
+[@339,762:762=':',<13>,45:30] COLON
+[@340,765:765='\t',<3>,46:1] NEWLINE
+[@341,765:765='<INDENT>',<1>,45:1] INDENT
+[@342,766:769='flag',<29>,46:1] VARIABLE
+[@343,770:770=' ',<30>,46:5] WS
+[@344,771:771='=',<5>,46:6] ASSIGNMENT_OP
+[@345,772:772=' ',<30>,46:7] WS
+[@346,773:777='False',<26>,46:8] BOOLEAN
+[@347,779:779='\n',<3>,47:0] NEWLINE
+[@348,779:779='<DEDENT>',<2>,46:0] DEDENT
+[@349,780:783='else',<12>,47:0] ELSE
+[@350,784:784=':',<13>,47:4] COLON
+[@351,787:787='\t',<3>,48:1] NEWLINE
+[@352,787:787='<INDENT>',<1>,47:1] INDENT
+[@353,788:791='data',<29>,48:1] VARIABLE
+[@354,792:792=' ',<30>,48:5] WS
+[@355,793:793='=',<5>,48:6] ASSIGNMENT_OP
+[@356,794:794=' ',<30>,48:7] WS
+[@357,795:796='-1',<25>,48:8] NUMBER
+[@358,796:796='1',<3>,48:10] NEWLINE
+[@359,796:796='<DEDENT>',<2>,48:10] DEDENT
+[@360,796:796='<DEDENT>',<2>,48:10] DEDENT
+[@361,792:796=' = -1',<-1>,48:10] WS_SKIPPED
 Parse tree:
 (stat 
    (expr 
@@ -345,7 +508,124 @@ Parse tree:
             (assignment flag   
                (assignment_operator =)   
                (expression 
-                  (value True)))) e) <DEDENT>  True))
+                  (value True)))) \n \n 
+         (line 
+            (assignment assign1   
+               (assignment_operator =)   
+               (expression 
+                  (value "")))) \n \n 
+         (line 
+            (if_block if   
+               (condition 
+                  (comparison_condition 
+                     (value var1))   >   
+                  (comparison_condition 
+                     (value var2))) : \t 
+               (block <INDENT> 
+                  (first_block 
+                     (line 
+                        (assignment arith_op1   
+                           (assignment_operator =)   
+                           (expression 
+                              (value 1)   
+                              (operator +)   
+                              (value 2)))) \t 
+                     (line 
+                        (assignment assign1   
+                           (assignment_operator =)   
+                           (expression 
+                              (value "text data")))) \n) <DEDENT>))) \n 
+         (line 
+            (if_block if   
+               (condition 
+                  (comparison_condition 
+                     (value var1))   <=   
+                  (comparison_condition 
+                     (value var2))   and   
+                  (comparison_condition 
+                     (value var3))   ==   
+                  (comparison_condition 
+                     (value var4))) : \t 
+               (block <INDENT> 
+                  (first_block 
+                     (line 
+                        (assignment arith_op1   
+                           (assignment_operator =)   
+                           (expression 
+                              (value 1)   
+                              (operator +)   
+                              (value 2)))) \t 
+                     (line 
+                        (assignment assign1   
+                           (assignment_operator =)   
+                           (expression 
+                              (value "text data")))) \n) <DEDENT>) 
+               (else_block else : \t 
+                  (block <INDENT> 
+                     (first_block 
+                        (line 
+                           (assignment arith_op4   
+                              (assignment_operator =)   
+                              (expression 
+                                 (value 4.2)   
+                                 (operator *)   
+                                 (value 10)))) \t 
+                        (line 
+                           (assignment arith_op3   
+                              (assignment_operator *=)   
+                              (expression 
+                                 (value arith_op4)))) \t \n) <DEDENT>)))) 
+         (line 
+            (assignment data   
+               (assignment_operator =)   
+               (expression 
+                  (value 0)))) \n \n 
+         (line 
+            (if_block if   
+               (condition 
+                  (comparison_condition 
+                     (value var1))   !=   
+                  (comparison_condition 
+                     (value var2))   or   
+                  (comparison_condition 
+                     (value var3))   >=   
+                  (comparison_condition 
+                     (value var4))) : \t 
+               (block <INDENT> 
+                  (first_block 
+                     (line 
+                        (assignment flag   
+                           (assignment_operator =)   
+                           (expression 
+                              (value True)))) \n) <DEDENT>) 
+               (elif_block elif 
+                  (condition   
+                     (comparison_condition ( 
+                        (condition 
+                           (comparison_condition not   
+                              (comparison_condition 
+                                 (value flag)))) ))   >=   
+                  (comparison_condition ( 
+                     (condition 
+                        (comparison_condition 
+                           (value var3))   >   
+                        (comparison_condition 
+                           (value 10))) ))) : \t 
+            (block <INDENT> 
+               (first_block 
+                  (line 
+                     (assignment flag   
+                        (assignment_operator =)   
+                        (expression 
+                           (value False)))) \n) <DEDENT>)) 
+         (else_block else : \t 
+            (block <INDENT> 
+               (first_block 
+                  (line 
+                     (assignment data   
+                        (assignment_operator =)   
+                        (expression 
+                           (value -1)))) 1) <DEDENT>))))) <DEDENT>  = -1))
 
-Project Deliverable 1: Passed
+Project Deliverable 2: Passed
 ```

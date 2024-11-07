@@ -1,16 +1,16 @@
-grammar main;
+parser grammar main;
 import blocks;
+/*
+  Start of parser grammar
+ */
 
-// parser rules
-
+// Entry point
 stat
-    : expr | EOF
+    : expr
     ;
 
+// Grammar for file
+// Block of code followed by any ending dedents and then end of file
 expr
-    : block EOF
-    ;
-
-WS_SKIPPED
-    : [\t] -> skip
+    : first_block (DEDENT* EOF)
     ;
