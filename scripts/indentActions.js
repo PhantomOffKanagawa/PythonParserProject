@@ -1,7 +1,7 @@
 "use strict";
 
 // Initialize state
-let tokens = [];
+// let tokens = [];
 let indents = [];
 let mIndent = -1;
 let lastToken = null;
@@ -64,8 +64,8 @@ function commonToken(type, text) {
 
 function getIndentationCount(spaces) {
     let count = 0;
-    for (let i = 0; i < spaces.length; i++) {
-        if (spaces[i] === '\t') {
+    for (const element of spaces) {
+        if (element === '\t') {
             count += 4 - (count % 4);
         } else {
             count++;
