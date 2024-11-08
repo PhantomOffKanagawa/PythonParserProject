@@ -16,9 +16,9 @@ Available at: https://github.com/PhantomOffKanagawa/PythonParserProject
 `antlr4 -Dlanguage=Python3 ./grammars/full.g4 -o ./libraries`
 
 ### Results
-- [Deliverable 1 Results](./final_tests/project_deliverable_1_results.txt)
-- [Deliverable 2 Results](./final_tests/project_deliverable_2_results.txt)
-- [Deliverable 3 Results](./final_tests/project_deliverable_3_results.txt)
+- [Deliverable 1 Results](./final_tests/project_deliverable_1_results.md)
+- [Deliverable 2 Results](./final_tests/project_deliverable_2_results.md)
+- [Deliverable 3 Results](./final_tests/project_deliverable_3_results.md)
 
 ### File Structure
 - `AA_indents.g4`: Define indent logic
