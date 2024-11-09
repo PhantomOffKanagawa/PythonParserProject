@@ -13,7 +13,7 @@ Available at: https://github.com/PhantomOffKanagawa/PythonParserProject
 > Manual compilation of main w/ antlr4
 
 `python ./scripts/combine_grammars.py`\
-`antlr4 -Dlanguage=Python3 ./grammars/full.g4 -o ./libraries`
+`antlr4 -Dlanguage=Python3 ./grammars/FullLexer.g4 ./grammars/FullParser.g4`
 
 ### Results
 - [Deliverable 1 Results](./final_tests/project_deliverable_1_results.md)
