@@ -1,5 +1,6 @@
 ![Deliverable 1 Parse Tree](./deliverable_1.svg)
 > Image at `./final_tests/deliverable_1.svg`
+> Secondary Image at `./final_tests/project_deliverable_1_parse_tree.png`
 
 ```
 (popl) $ python ./scripts/combine_grammars.py && antlr4 -Dlanguage=Python3 ./grammars/FullLexer.g4 ./grammars/FullParser.g4 && python main.py

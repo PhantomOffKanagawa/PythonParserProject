@@ -1,5 +1,5 @@
-> Can't generate an image of the tree due to indentation implementation\
-> Token list and parse tree as text below
+![Deliverable 2 Parse Tree](./project_deliverable_2_parse_tree.png)
+> Above is very zoomed out, available at `~/final_tests/project_deliverable_2_parse_tree.png`
 
 ```
 (popl) $ python ./scripts/combine_grammars.py && antlr4 -Dlanguage=Python3 ./grammars/FullLexer.g4 ./grammars/FullParser.g4 && python main.py
