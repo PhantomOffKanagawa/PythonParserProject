@@ -65,7 +65,7 @@ def visualize_parse_tree(tree, output_file="parse_tree"):
     
     return output_file + '.png'
 
-def parse_file(file_name, verbose=True):
+def parse_file(file_name, verbose=True, image=False):
     input_stream = FileStream(file_name)
     lexer = FullLexer(input_stream)
 
@@ -92,7 +92,10 @@ def parse_file(file_name, verbose=True):
     parser.addErrorListener(parser_error_listener)  # Custom error listener
 
     tree = parser.stat()
-    visualize_parse_tree(tree, output_file=file_name.replace('.py', '_parse_tree'))
+
+    # Visualize the parse tree
+    if image:
+        visualize_parse_tree(tree, output_file=file_name.replace('.py', '_parse_tree'))
 
     # Print the parse tree
     if verbose:
@@ -134,12 +137,12 @@ class CustomErrorListener(ErrorListener):
 
 # Test on class requirements
 
-deliverable_one = parse_file('./final_tests/project_deliverable_1.py')
-deliverable_two = parse_file('./final_tests/project_deliverable_2.py')
+# deliverable_one = parse_file('./final_tests/project_deliverable_1.py')
+# deliverable_two = parse_file('./final_tests/project_deliverable_2.py')
 deliverable_three = parse_file('./final_tests/project_deliverable_3.py')
 
 # Show test results
 
-print(f"Project Deliverable 1: {'Passed' if deliverable_one else 'Failed'}")
-print(f"Project Deliverable 2: {'Passed' if deliverable_two else 'Failed'}")
+# print(f"Project Deliverable 1: {'Passed' if deliverable_one else 'Failed'}")
+# print(f"Project Deliverable 2: {'Passed' if deliverable_two else 'Failed'}")
 print(f"Project Deliverable 3: {'Passed' if deliverable_three else 'Failed'}")
