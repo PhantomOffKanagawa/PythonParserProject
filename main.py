@@ -1,14 +1,11 @@
 # Python tester built on top of: https://github.com/AkiraHakuta/antlr4_Python3_examples
 
+import argparse
+
 from antlr4 import *
 from antlr4.error.ErrorListener import ErrorListener
 from grammars.FullLexer import FullLexer
 from grammars.FullParser import FullParser
-
-# For graph visualization
-from graphviz import Digraph
-from antlr4.tree.Tree import ParseTree
-import uuid
 
 def beautify_lisp_string(in_string):
     indent_size = 3
@@ -29,6 +26,13 @@ def beautify_lisp_string(in_string):
 
 def visualize_parse_tree(tree, output_file="parse_tree"):
     """Create a visual representation of the parse tree"""
+
+    # For graph visualization
+    # Avoiding import errors when not needed
+    from graphviz import Digraph
+    from antlr4.tree.Tree import ParseTree
+    import uuid
+
     dot = Digraph(comment='Parse Tree')
     dot.attr(rankdir='TB')
     
@@ -95,7 +99,8 @@ def parse_file(file_name, verbose=True, image=False):
 
     # Visualize the parse tree
     if image:
-        visualize_parse_tree(tree, output_file=file_name.replace('.py', '_parse_tree'))
+        output_file = visualize_parse_tree(tree, output_file=file_name.replace('.py', '_parse_tree'))
+        print(f"Parse tree visualization saved to {output_file}")
 
     # Print the parse tree
     if verbose:
@@ -137,12 +142,32 @@ class CustomErrorListener(ErrorListener):
 
 # Test on class requirements
 
-# deliverable_one = parse_file('./final_tests/project_deliverable_1.py')
-# deliverable_two = parse_file('./final_tests/project_deliverable_2.py')
-deliverable_three = parse_file('./final_tests/project_deliverable_3.py')
+parser = argparse.ArgumentParser(description='Python Parser')
+parser.add_argument('--verbose', action=argparse.BooleanOptionalAction, help='Print verbose output')
+parser.add_argument('--file', type=str, default="", help='Python file to parse')
+parser.add_argument('--deliv', type=int, default=-1, help='Deliverable to check against (1 - 3)')
+parser.add_argument('--image', action='store_true', help='Generate image of parse tree')
+args = parser.parse_args()
 
-# Show test results
+match args.deliv:
+    case 1:
+        deliverable = parse_file('./final_tests/project_deliverable_1.py', verbose=args.verbose, image=args.image)
+    case 2:
+        deliverable = parse_file('./final_tests/project_deliverable_2.py', verbose=args.verbose, image=args.image)
+    case 3:
+        deliverable = parse_file('./final_tests/project_deliverable_3.py', verbose=args.verbose, image=args.image)
+    case -1:
+        pass
+    case _:
+        print("Invalid deliverable")
 
-# print(f"Project Deliverable 1: {'Passed' if deliverable_one else 'Failed'}")
-# print(f"Project Deliverable 2: {'Passed' if deliverable_two else 'Failed'}")
-print(f"Project Deliverable 3: {'Passed' if deliverable_three else 'Failed'}")
+if (args.deliv > 0 and args.deliv < 4):
+    print(f"Project Deliverable {args.deliv}: {'Passed' if deliverable else 'Failed'}")
+
+# Untested
+if args.file != "":
+    parse_file(args.file, verbose=args.verbose, image=args.image)
+
+if args.deliv == -1 and args.file == "":
+    print("No file or deliverable specified")
+    print("python main.py --file? <file_name> --deliv? <1-3> --verbose? --image?")
